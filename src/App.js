@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState } from "react";
 import SearchBar from "./components/SearchBar"; 
 import Playlist from "./components/Playlist";
@@ -8,7 +7,7 @@ const App = () => {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(false);
   const fetchPlaylistHandler = async (playlistId) => {
-    const API_KEY = "AIzaSyASeaj-7Unu4Fb8n8_kufCAnJj5KGZi52I"; 
+    const API_KEY = process.env.YOUTUBE_API_KEY;
     setLoading(true);
     const fetchedVideos = await fetchPlaylistVideos(playlistId, API_KEY);
     setVideos(fetchedVideos);
